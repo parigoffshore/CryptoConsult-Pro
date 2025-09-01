@@ -1,0 +1,141 @@
+"use client"
+
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import Image from "next/image";
+import { Mail, Phone, MapPin } from "lucide-react";
+
+const formSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters."),
+  email: z.string().email("Please enter a valid email address."),
+  subject: z.string().min(5, "Subject must be at least 5 characters."),
+  message: z.string().min(10, "Message must be at least 10 characters.").max(500, "Message must be less than 500 characters."),
+});
+
+export default function Contact() {
+  const { toast } = useToast();
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values);
+    toast({
+      title: "Message Sent!",
+      description: "Thank you for contacting us. We'll get back to you shortly.",
+    });
+    form.reset();
+  }
+
+  return (
+    <section id="contact" className="py-20 md:py-32 bg-secondary">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+          <h2 className="font-headline text-4xl md:text-5xl font-bold">Get in Touch</h2>
+          <p className="mt-4 text-muted-foreground md:text-lg">
+            Have a question or want to start a project? We'd love to hear from you.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="space-y-8">
+            <div className="p-6 bg-background rounded-lg shadow-sm">
+                <h3 className="text-2xl font-bold font-headline mb-4">Contact Information</h3>
+                <div className="space-y-4 text-muted-foreground">
+                    <div className="flex items-center gap-4">
+                        <MapPin className="h-6 w-6 text-primary" />
+                        <span>123 Crypto Lane, Blockchain City, 12345</span>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <Mail className="h-6 w-6 text-primary" />
+                        <a href="mailto:contact@apexcrypto.com" className="hover:text-primary">contact@apexcrypto.com</a>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <Phone className="h-6 w-6 text-primary" />
+                        <a href="tel:+1234567890" className="hover:text-primary">+1 (234) 567-890</a>
+                    </div>
+                </div>
+            </div>
+            <div className="relative h-64 w-full rounded-lg overflow-hidden">
+                <Image src="https://picsum.photos/600/400" data-ai-hint="office building" alt="Office" layout="fill" objectFit="cover" />
+            </div>
+          </div>
+          <div className="p-6 sm:p-8 bg-background rounded-lg shadow-sm">
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Full Name</FormLabel>
+                      <FormControl>
+                        <Input placeholder="John Doe" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email Address</FormLabel>
+                      <FormControl>
+                        <Input type="email" placeholder="john.doe@example.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="subject"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Subject</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Investment Strategy Inquiry" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Message</FormLabel>
+                      <FormControl>
+                        <Textarea placeholder="Tell us how we can help..." className="min-h-[120px]" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button type="submit" size="lg" className="w-full" disabled={form.formState.isSubmitting}>
+                  {form.formState.isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
+            </Form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
