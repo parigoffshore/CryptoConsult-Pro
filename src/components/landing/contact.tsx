@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -8,8 +9,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -20,6 +21,7 @@ const formSchema = z.object({
 
 export default function Contact() {
   const { toast } = useToast();
+  const [date, setDate] = React.useState<Date | undefined>(new Date());
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -38,6 +40,21 @@ export default function Contact() {
       description: "Thank you for contacting us. We'll get back to you shortly.",
     });
     form.reset();
+  }
+
+  function handleBooking() {
+    if (date) {
+        toast({
+            title: "Booking Confirmed!",
+            description: `Your free consulting session is booked for ${date.toLocaleDateString()}.`,
+        });
+    } else {
+        toast({
+            variant: "destructive",
+            title: "Booking Failed",
+            description: "Please select a date for your consultation.",
+        });
+    }
   }
 
   return (
@@ -69,8 +86,17 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
-            <div className="relative h-64 w-full rounded-lg overflow-hidden">
-                <Image src="https://picsum.photos/600/400" data-ai-hint="office building" alt="Office" layout="fill" objectFit="cover" />
+            <div className="p-6 bg-background rounded-lg shadow-sm">
+                <h3 className="text-2xl font-bold font-headline mb-4">Book a Free Consulting</h3>
+                <Calendar
+                    mode="single"
+                    selected={date}
+                    onSelect={setDate}
+                    className="rounded-md"
+                />
+                <Button onClick={handleBooking} className="w-full mt-4">
+                  Book Free Consulting
+                </Button>
             </div>
           </div>
           <div className="p-6 sm:p-8 bg-background rounded-lg shadow-sm">
