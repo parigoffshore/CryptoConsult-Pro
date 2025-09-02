@@ -20,6 +20,7 @@ export default function Footer() {
               <h4 className="font-semibold tracking-wider uppercase mb-4">Navigate</h4>
               <ul className="space-y-2">
                 <li><Link href="#services" className="text-sm text-primary-foreground/70 hover:text-white">Services</Link></li>
+                <li><Link href="/blog" className="text-sm text-primary-foreground/70 hover:text-white">Blog</Link></li>
                 <li><Link href="#team" className="text-sm text-primary-foreground/70 hover:text-white">Team</Link></li>
                 <li><Link href="#testimonials" className="text-sm text-primary-foreground/70 hover:text-white">Testimonials</Link></li>
                 <li><Link href="#contact" className="text-sm text-primary-foreground/70 hover:text-white">Contact</Link></li>
