@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import type { BlogPost } from '@/lib/blog';
 import { Search } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface BlogProps {
   posts: BlogPost[];
@@ -27,8 +28,8 @@ export default function Blog({ posts }: BlogProps) {
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row gap-4 mb-8">
-        <div className="relative w-full md:w-2/3">
+      <div className="flex flex-col items-center gap-4 mb-8">
+        <div className="relative w-full max-w-lg">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input
             type="search"
@@ -38,7 +39,7 @@ export default function Blog({ posts }: BlogProps) {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        <div className="flex-1 flex gap-2 overflow-x-auto pb-2">
+        <div className="flex flex-wrap justify-center gap-2">
             <Button
                 variant={!selectedCategory ? 'default' : 'outline'}
                 onClick={() => setSelectedCategory(null)}
