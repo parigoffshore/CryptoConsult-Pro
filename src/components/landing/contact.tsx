@@ -78,7 +78,7 @@ export default function Contact() {
                     </div>
                     <div className="flex items-center gap-4">
                         <Mail className="h-6 w-6 text-primary" />
-                        <a href="mailto:contact@apexcrypto.com" className="hover:text-primary">contact@apexcrypto.com</a>
+                        <a href="mailto:contact@cryptoconsultpro.com" className="hover:text-primary">contact@cryptoconsultpro.com</a>
                     </div>
                     <div className="flex items-center gap-4">
                         <Phone className="h-6 w-6 text-primary" />

@@ -19,7 +19,7 @@ const testimonials = [
     avatar: "SL",
     image: "https://picsum.photos/100/100?random=4",
     dataAiHint: "professional headshot",
-    quote: "Apex Crypto Consulting transformed our approach to digital assets. Their strategic insights were a game-changer for our investment portfolio.",
+    quote: "CryptoConsult Pro transformed our approach to digital assets. Their strategic insights were a game-changer for our investment portfolio.",
   },
   {
     name: "David Chen",
@@ -35,7 +35,7 @@ const testimonials = [
     avatar: "MG",
     image: "https://picsum.photos/100/100?random=6",
     dataAiHint: "professional headshot",
-    quote: "As a private investor, navigating the crypto world was daunting. Apex provided the personalized guidance I needed to invest with confidence.",
+    quote: "As a private investor, navigating the crypto world was daunting. CryptoConsult Pro provided the personalized guidance I needed to invest with confidence.",
   },
 ]
 

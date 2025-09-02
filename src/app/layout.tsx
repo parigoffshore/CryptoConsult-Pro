@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'Apex Crypto Consulting',
+  title: 'CryptoConsult Pro',
   description: 'Expert crypto consulting to navigate the world of digital assets.',
 };
 

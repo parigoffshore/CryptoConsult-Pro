@@ -40,7 +40,7 @@ export default function AITools() {
 
   const marketingForm = useForm<z.infer<typeof marketingSchema>>({
     resolver: zodResolver(marketingSchema),
-    defaultValues: { companyName: "Apex Crypto Consulting", serviceDescription: "", targetAudience: "", tone: "Professional" },
+    defaultValues: { companyName: "CryptoConsult Pro", serviceDescription: "", targetAudience: "", tone: "Professional" },
   });
 
   const serviceForm = useForm<z.infer<typeof serviceSchema>>({

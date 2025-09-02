@@ -43,7 +43,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-primary-foreground/20 text-center text-sm text-primary-foreground/70">
-          <p>&copy; {currentYear} Apex Crypto Consulting. All Rights Reserved.</p>
+          <p>&copy; {currentYear} CryptoConsult Pro. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
