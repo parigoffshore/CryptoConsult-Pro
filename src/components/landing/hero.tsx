@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="relative container mx-auto px-4 md:px-6 text-center z-10">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-shadow-lg">
-            Navigate the Crypto Frontier with Confidence
+            Smart crypto decisions starts here
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-primary-foreground/80 md:text-xl">
             CryptoConsult Pro provides expert guidance and cutting-edge strategies to help you master the complexities of the digital asset market.
