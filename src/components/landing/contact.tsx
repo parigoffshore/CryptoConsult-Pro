@@ -74,15 +74,19 @@ export default function Contact() {
                 <div className="space-y-4 text-muted-foreground">
                     <div className="flex items-center gap-4">
                         <MapPin className="h-6 w-6 text-primary" />
-                        <span>123 Crypto Lane, Blockchain City, 12345</span>
+                        <span>Calle Principal, Big Creek, Isla Colon , Bocas del Toro, PANAMA</span>
                     </div>
                     <div className="flex items-center gap-4">
                         <Mail className="h-6 w-6 text-primary" />
-                        <a href="mailto:contact@cryptoconsultpro.com" className="hover:text-primary">contact@cryptoconsultpro.com</a>
+                        <a href="mailto:Davidcrypto507@gmail.com" className="hover:text-primary">Davidcrypto507@gmail.com</a>
                     </div>
                     <div className="flex items-center gap-4">
                         <Phone className="h-6 w-6 text-primary" />
-                        <a href="tel:+1234567890" className="hover:text-primary">+1 (234) 567-890</a>
+                        <a href="tel:+50764708636" className="hover:text-primary">+507 6470-8636</a>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <Phone className="h-6 w-6 text-primary" />
+                        <a href="tel:+23054741839" className="hover:text-primary">+230 5474-1839</a>
                     </div>
                 </div>
             </div>
