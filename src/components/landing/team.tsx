@@ -5,33 +5,11 @@ import Link from 'next/link';
 
 const teamMembers = [
   {
-    name: "Alex Thompson",
-    role: "Founder & Chief Strategist",
+    name: "David Birota",
+    role: "Founder, Analyst & DeFi Consultant",
     image: "https://picsum.photos/300/300?random=1",
     dataAiHint: "professional portrait",
-    bio: "With over a decade in finance and a passion for blockchain, Alex leads our team with visionary strategies.",
-    social: {
-      linkedin: "#",
-      twitter: "#",
-    },
-  },
-  {
-    name: "Samantha Chen",
-    role: "Head of Research & Analysis",
-    image: "https://picsum.photos/300/300?random=2",
-    dataAiHint: "professional portrait",
-    bio: "Samantha's deep-dive market analysis uncovers trends that drive our clients' success in the crypto market.",
-    social: {
-      linkedin: "#",
-      twitter: "#",
-    },
-  },
-  {
-    name: "Michael Rodriguez",
-    role: "Senior DeFi Consultant",
-    image: "https://picsum.photos/300/300?random=3",
-    dataAiHint: "professional portrait",
-    bio: "An expert in decentralized finance, Michael helps clients navigate the complexities and opportunities of DeFi.",
+    bio: "David is a visionary leader with a deep understanding of crypto markets, decentralized finance, and blockchain technology.",
     social: {
       linkedin: "#",
       twitter: "#",
@@ -44,14 +22,14 @@ export default function Team() {
     <section id="team" className="py-20 md:py-32 bg-secondary">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-          <h2 className="font-headline text-4xl md:text-5xl font-bold">Meet Our Experts</h2>
+          <h2 className="font-headline text-4xl md:text-5xl font-bold">Meet Our Expert</h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
             Our team combines financial acumen with deep technological expertise to deliver unparalleled crypto consulting.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
           {teamMembers.map((member) => (
-            <Card key={member.name} className="overflow-hidden text-center group">
+            <Card key={member.name} className="overflow-hidden text-center group max-w-sm sm:col-start-2 lg:col-start-2">
               <div className="relative h-64 w-full">
                 <Image
                   src={member.image}
