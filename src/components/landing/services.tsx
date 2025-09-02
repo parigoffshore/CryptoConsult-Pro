@@ -22,11 +22,6 @@ const services = [
     title: "DeFi & NFT Advisory",
     description: "Navigate the world of Decentralized Finance and Non-Fungible Tokens with our specialized advisory services.",
   },
-  {
-    icon: <Landmark className="h-10 w-10 text-primary" />,
-    title: "Regulatory Compliance",
-    description: "Stay ahead of the curve with expert guidance on the evolving crypto regulatory landscape.",
-  },
 ];
 
 export default function Services() {
@@ -39,7 +34,7 @@ export default function Services() {
             We provide a comprehensive suite of consulting services to empower your journey in the crypto space.
           </p>
         </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
           {services.map((service, index) => (
             <Card key={index} className="flex flex-col items-center text-center p-6 transition-transform transform hover:-translate-y-2 hover:shadow-xl">
               <CardHeader className="p-0 mb-4">
