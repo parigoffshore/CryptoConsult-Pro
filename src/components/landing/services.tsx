@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { BarChart3, ShieldCheck, Briefcase, Bot, Landmark, Scaling } from 'lucide-react';
+import { BarChart3, ShieldCheck, Briefcase, Landmark, Scaling } from 'lucide-react';
 
 const services = [
   {
@@ -26,11 +26,6 @@ const services = [
     icon: <Landmark className="h-10 w-10 text-primary" />,
     title: "Regulatory Compliance",
     description: "Stay ahead of the curve with expert guidance on the evolving crypto regulatory landscape.",
-  },
-  {
-    icon: <Bot className="h-10 w-10 text-primary" />,
-    title: "AI-Driven Insights",
-    description: "Leverage cutting-edge AI for market analysis, trend prediction, and automated trading solutions.",
   },
 ];
 
