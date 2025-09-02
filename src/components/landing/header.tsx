@@ -7,6 +7,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Logo } from '@/components/logo';
+import { LanguageSwitcher } from '@/components/language-switcher';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -43,6 +44,7 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
+          <LanguageSwitcher />
           <Button asChild className="hidden sm:flex bg-accent hover:bg-accent/90 text-accent-foreground">
             <Link href="/tools">
               <Sparkles className="mr-2 h-4 w-4" />
