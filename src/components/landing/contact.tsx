@@ -61,7 +61,7 @@ export default function Contact() {
     <section id="contact" className="py-20 md:py-32 bg-secondary">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-          <h2 className="font-headline text-4xl md:text-5xl font-bold">Get in Touch</h2>
+          <h2 className="font-headline text-4xl md:text-5xl font-bold">Prenons Contact</h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
             Vous avez une question ou souhaitez démarrer un projet ? N'hésitez pas à nous contacter.
           </p>
