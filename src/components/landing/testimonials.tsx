@@ -14,9 +14,9 @@ import { Star } from "lucide-react"
 
 const testimonials = [
   {
-    name: "Client Marc Dubois",
+    name: "Client Marc Furlan",
     role: "Investisseur particulier",
-    avatar: "MD",
+    avatar: "MF",
     image: "https://picsum.photos/100/100?random=4",
     dataAiHint: "professional headshot",
     quote: "Grâce aux conseils de CryptoConsult Pro, j'ai pu structurer mon portefeuille crypto et réaliser des gains significatifs en seulement 6 mois.",
