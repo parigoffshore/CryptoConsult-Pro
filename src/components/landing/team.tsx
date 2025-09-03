@@ -24,7 +24,7 @@ export default function Team() {
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
           <h2 className="font-headline text-4xl md:text-5xl font-bold">A propos de moi</h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
-            Our team combines financial acumen with deep technological expertise to deliver unparalleled crypto consulting.
+            Je combine un sens aigu des finances avec une expertise technologique approfondie pour vous offrir des conseils en cryptographie.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
