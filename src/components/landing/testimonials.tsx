@@ -30,12 +30,12 @@ const testimonials = [
     quote: "Leurs conseils m'ont permis de diversifier mes investissements et de sécuriser mes actifs tout en maximisant mes rendements.",
   },
   {
-    name: "Maria Garcia",
-    role: "Private Investor",
-    avatar: "MG",
+    name: "Client Thomas Van Steiner",
+    role: "Entrepreneur",
+    avatar: "TVS",
     image: "https://picsum.photos/100/100?random=6",
     dataAiHint: "professional headshot",
-    quote: "As a private investor, navigating the crypto world was daunting. CryptoConsult Pro provided the personalized guidance I needed to invest with confidence.",
+    quote: "J'ai appris énormément sur la sécurité et la diversification. Maintenant, j'investis en crypto avec beaucoup plus de confiance.",
   },
 ]
 
