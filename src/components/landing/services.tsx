@@ -31,7 +31,7 @@ export default function Services() {
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
           <h2 className="font-headline text-4xl md:text-5xl font-bold">Notre Expertise</h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
-            We provide a comprehensive suite of consulting services to empower your journey in the crypto space.
+            Nous proposons une gamme complète de services de conseil pour dynamiser votre parcours dans l’écosystème crypto.
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
