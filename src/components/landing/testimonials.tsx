@@ -14,12 +14,12 @@ import { Star } from "lucide-react"
 
 const testimonials = [
   {
-    name: "Sarah L.",
-    role: "CEO, Tech Innovators",
-    avatar: "SL",
+    name: "Client Marc Dubois",
+    role: "Investisseur particulier",
+    avatar: "MD",
     image: "https://picsum.photos/100/100?random=4",
     dataAiHint: "professional headshot",
-    quote: "CryptoConsult Pro transformed our approach to digital assets. Their strategic insights were a game-changer for our investment portfolio.",
+    quote: "Grâce aux conseils de CryptoConsult Pro, j'ai pu structurer mon portefeuille crypto et réaliser des gains significatifs en seulement 6 mois.",
   },
   {
     name: "David Chen",
