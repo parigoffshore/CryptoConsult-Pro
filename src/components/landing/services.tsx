@@ -19,7 +19,7 @@ const services = [
   },
   {
     icon: <Scaling className="h-10 w-10 text-primary" />,
-    title: "DeFi & NFT Advisory",
+    title: "Formation Crypto",
     description: "Navigate the world of Decentralized Finance and Non-Fungible Tokens with our specialized advisory services.",
   },
 ];
