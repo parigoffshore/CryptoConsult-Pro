@@ -5,7 +5,7 @@ const services = [
   {
     icon: <Briefcase className="h-10 w-10 text-primary" />,
     title: "Investment Strategies",
-    description: "Tailored crypto investment strategies to meet your financial goals, from long-term holding to active trading.",
+    description: "Maximisez vos rendements avec nos stratégies d'investissement personnalisées en crypto-monnaies. Notre équipe d'experts vous guide à chaque étape.",
   },
   {
     icon: <BarChart3 className="h-10 w-10 text-primary" />,
