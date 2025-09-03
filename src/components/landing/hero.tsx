@@ -20,7 +20,7 @@ export default function Hero() {
             Smart crypto decisions starts here
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-primary-foreground/80 md:text-xl">
-            CryptoConsult Pro provides expert guidance and cutting-edge strategies to help you master the complexities of the digital asset market.
+            CryptoConsult Pro propose des conseils d'experts et des stratégies de pointe pour vous aider à maîtriser les complexités du marché des actifs numériques.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
             <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
