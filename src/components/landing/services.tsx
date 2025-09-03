@@ -15,7 +15,7 @@ const services = [
   {
     icon: <ShieldCheck className="h-10 w-10 text-primary" />,
     title: "Risk Assessment",
-    description: "Comprehensive risk analysis and mitigation strategies to protect your investments from market fluctuations and threats.",
+    description: "Analyse complète des risques et stratégies d’atténuation pour protéger vos investissements contre les fluctuations et les menaces du marché.",
   },
   {
     icon: <Scaling className="h-10 w-10 text-primary" />,
