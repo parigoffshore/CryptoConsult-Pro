@@ -4,7 +4,7 @@ import { BarChart3, ShieldCheck, Briefcase, Landmark, Scaling } from 'lucide-rea
 const services = [
   {
     icon: <Briefcase className="h-10 w-10 text-primary" />,
-    title: "Investment Strategies",
+    title: "Stratégies d’investissement",
     description: "Maximisez vos rendements avec nos stratégies d'investissement personnalisées en crypto-monnaies. Notre équipe d'experts vous guide à chaque étape.",
   },
   {
