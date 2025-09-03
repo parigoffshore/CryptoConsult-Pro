@@ -20,7 +20,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4 md:px-6 text-center">
             <h2 className="font-headline text-4xl md:text-5xl font-bold">Restez informés avec notre blog</h2>
             <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
-              Dive into our latest articles and stay ahead of the crypto curve.
+              Toutes les informations fondamentales sur les cryptos c'est ici !
             </p>
             <div className="mt-8">
               <Button size="lg" asChild>
