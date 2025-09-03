@@ -9,7 +9,7 @@ const services = [
   },
   {
     icon: <BarChart3 className="h-10 w-10 text-primary" />,
-    title: "Portfolio Management",
+    title: "Conseil en gestion d'actifs",
     description: "Gestion experte de votre portefeuille d'actifs numériques pour optimiser la croissance et équilibrer les risques dans un marché volatil.",
   },
   {
