@@ -7,7 +7,7 @@ export function Logo() {
       <Image 
         src="/Logo_CryptoConsult_V1.png" 
         alt="CryptoConsult Pro" 
-        width={180} 
+        width={80} 
         height={180} 
         priority 
       />
