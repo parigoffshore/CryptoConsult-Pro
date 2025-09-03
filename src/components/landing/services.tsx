@@ -14,7 +14,7 @@ const services = [
   },
   {
     icon: <ShieldCheck className="h-10 w-10 text-primary" />,
-    title: "Risk Assessment",
+    title: "Gestion des risques",
     description: "Analyse complète des risques et stratégies d’atténuation pour protéger vos investissements contre les fluctuations et les menaces du marché.",
   },
   {
