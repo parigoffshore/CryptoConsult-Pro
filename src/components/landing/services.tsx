@@ -20,7 +20,7 @@ const services = [
   {
     icon: <Scaling className="h-10 w-10 text-primary" />,
     title: "Formation Crypto",
-    description: "Navigate the world of Decentralized Finance and Non-Fungible Tokens with our specialized advisory services.",
+    description: "Une formation vous est proposée pour une meilleure compréhension de l’écosystème et des decisions que vous prendrez pour maximiser vos investissements.",
   },
 ];
 
