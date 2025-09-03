@@ -22,12 +22,12 @@ const testimonials = [
     quote: "Grâce aux conseils de CryptoConsult Pro, j'ai pu structurer mon portefeuille crypto et réaliser des gains significatifs en seulement 6 mois.",
   },
   {
-    name: "David Chen",
-    role: "Founder, Fin startups",
-    avatar: "DC",
+    name: "Client Sofia Martinez",
+    role: "Restauratrice",
+    avatar: "SM",
     image: "https://picsum.photos/100/100?random=5",
     dataAiHint: "professional headshot",
-    quote: "The team's expertise in DeFi is unmatched. They guided us through complex protocols with clarity and helped us maximize our returns securely.",
+    quote: "Leurs conseils m'ont permis de diversifier mes investissements et de sécuriser mes actifs tout en maximisant mes rendements.",
   },
   {
     name: "Maria Garcia",
