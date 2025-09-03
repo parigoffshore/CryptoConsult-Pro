@@ -10,7 +10,7 @@ const services = [
   {
     icon: <BarChart3 className="h-10 w-10 text-primary" />,
     title: "Portfolio Management",
-    description: "Expert management of your digital asset portfolio to optimize growth and balance risk in a volatile market.",
+    description: "Gestion experte de votre portefeuille d'actifs numériques pour optimiser la croissance et équilibrer les risques dans un marché volatil.",
   },
   {
     icon: <ShieldCheck className="h-10 w-10 text-primary" />,
