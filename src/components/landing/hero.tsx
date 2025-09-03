@@ -30,7 +30,7 @@ export default function Hero() {
             </Button>
             <Button size="lg" variant="outline" asChild className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
               <Link href="#services">
-                Explore Our Services
+                Nos services
               </Link>
             </Button>
           </div>
