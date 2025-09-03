@@ -25,7 +25,7 @@ export default function Hero() {
           <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
             <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
               <Link href="#contact">
-                Schedule a Consultation
+                Votre consultation gratuite
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
