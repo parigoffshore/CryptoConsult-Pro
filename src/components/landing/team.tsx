@@ -12,7 +12,7 @@ const teamMembers = [
     bio: "Je suis conseiller expert en crypto. Mon atout ? Une double casquette : Je suis formé à la finance traditionnelle , ce qui me donne une rigueur analytique et je suis plongé dans la Crypto depuis 2019. J'ai donc vécu tous les cycles de marché. Mon rôle est de servir de traducteur entre un écosystème crypto très technique et mes clients. Que vous soyez une entreprise qui veut diversifier sa trésorerie ou un particulier qui veut investir sereinement, je vous apporte un plan d'action clair et sur-mesure pour atteindre vos objectifs sans vous perdre en route. Contactez moi pour une première analyse gratuite de vos objectifs.",
     social: {
       linkedin: "https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin",
-      twitter: "#",
+      twitter: "https://x.com/ParigOffshore",
     },
   },
 ];
