@@ -63,7 +63,7 @@ export default function Contact() {
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
           <h2 className="font-headline text-4xl md:text-5xl font-bold">Get in Touch</h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
-            Have a question or want to start a project? We'd love to hear from you.
+            Vous avez une question ou souhaitez démarrer un projet ? N'hésitez pas à nous contacter.
           </p>
         </div>
 
