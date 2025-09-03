@@ -7,7 +7,7 @@ const teamMembers = [
   {
     name: "David Birota",
     role: "Founder, Analyst & DeFi Consultant",
-    image: "https://picsum.photos/300/300?random=1",
+    image: "https://images.unsplash.com/photo-1610415133614-e68d79c89654?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxidXJlYXUlMjBhZmZhaXJlJTIwYWR1bHRlJTIwcGhvdG9ncmFwaGllJTIwaG9tbWVzJTIwbm9pciUyMG9yZGluYXRldXIlMjAlMjBuJUMzJUE5Z29jaWFudCUyMHYlQzMlQUF0ZW1lbnRzJTIwZCVFMiU4MCU5OWFmZmFpcmVzJTIwfGVufDB8fHx8MTc1Njg3ODYzOHww&ixlib=rb-4.1.0&q=80&w=1080",
     dataAiHint: "professional portrait",
     bio: "Je suis conseiller expert en crypto. Mon atout ? Une double casquette : Je suis formé à la finance traditionnelle , ce qui me donne une rigueur analytique et je suis plongé dans la Crypto depuis 2019. J'ai donc vécu tous les cycles de marché. Mon rôle est de servir de traducteur entre un écosystème crypto très technique et mes clients. Que vous soyez une entreprise qui veut diversifier sa trésorerie ou un particulier qui veut investir sereinement, je vous apporte un plan d'action clair et sur-mesure pour atteindre vos objectifs sans vous perdre en route. Contactez moi pour une première analyse gratuite de vos objectifs.",
     social: {
