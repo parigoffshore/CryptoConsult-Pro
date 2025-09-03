@@ -29,7 +29,7 @@ export default function Services() {
     <section id="services" className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-          <h2 className="font-headline text-4xl md:text-5xl font-bold">Our Expertise</h2>
+          <h2 className="font-headline text-4xl md:text-5xl font-bold">Notre Expertise</h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
             We provide a comprehensive suite of consulting services to empower your journey in the crypto space.
           </p>
