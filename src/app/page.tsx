@@ -18,7 +18,7 @@ export default function HomePage() {
         <Services />
         <section className="py-20 md:py-32 bg-secondary">
           <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold">Explore Our Blog</h2>
+            <h2 className="font-headline text-4xl md:text-5xl font-bold">Restez informés avec notre blog</h2>
             <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
               Dive into our latest articles and stay ahead of the crypto curve.
             </p>
