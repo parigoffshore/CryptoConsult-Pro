@@ -25,7 +25,7 @@ export default function HomePage() {
             <div className="mt-8">
               <Button size="lg" asChild>
                 <Link href="/blog">
-                  Visit The Blog <ArrowRight className="ml-2 h-5 w-5" />
+                  Visitez le blog <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </div>
