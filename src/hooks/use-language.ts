@@ -10,6 +10,6 @@ interface LanguageState {
 }
 
 export const useLanguage = create<LanguageState>((set) => ({
-  language: "en",
+  language: "fr",
   setLanguage: (language) => set({ language }),
 }));
