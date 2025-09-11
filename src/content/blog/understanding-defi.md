@@ -53,4 +53,4 @@ La DeFi peut ouvrir des portes incroyables, mais elle comporte aussi des **risqu
 
 👉 Ne laissez pas vos investissements au hasard : profitez d’un **appel gratuit avec un conseiller spécialisé**, qui vous guidera pas à pas pour éviter les erreurs et construire une stratégie adaptée à vos objectifs.  
 
-🔗 [Réservez votre consultation gratuite dès maintenant](https://cryptoconsult.me/contact)  
+🔗 [Réservez votre consultation gratuite dès maintenant](https://cryptoconsult.me/#contact)  
