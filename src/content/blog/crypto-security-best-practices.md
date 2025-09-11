@@ -11,7 +11,7 @@ image: "/images/sécuriser-ses-cryptos.png"
 ## Pourquoi la sécurité crypto est-elle si importante ?  
 <!-- animation: fade-in-up sur le titre -->
 
-![Illustration sécurises-ses-cryptos](/images/sécuriser-ses-cryptos.png)
+![Illustration sécuriser-ses-cryptos](/images/sécuriser-ses-cryptos.png)
 
 La nature **décentralisée et souvent anonyme** des cryptomonnaies en fait une cible privilégiée pour les **hackers** et les **arnaqueurs**.  
 Contrairement au système bancaire traditionnel, il n’existe **aucune autorité centrale** à laquelle faire appel si vos fonds sont volés.
@@ -59,6 +59,6 @@ C’est de là que vient le célèbre adage :
 
 👉 **Ne prenez pas ce risque seul** : réservez une **consultation gratuite** avec un conseiller spécialisé qui vous guidera pas à pas dans la mise en place des protocoles de sécurité adaptés à votre situation.
 
-[📅 Réserver ma consultation gratuite](https://cryptoconsult.netlify.app/contact)
+[📅 Réserver ma consultation gratuite](https://cryptoconsult.netlify.app/#contact)
 <!-- animation: pulse infini sur le bouton -->
 
