@@ -11,6 +11,8 @@ image: "/images/sécuriser-ses-cryptos.png"
 ## Pourquoi la sécurité crypto est-elle si importante ?  
 <!-- animation: fade-in-up sur le titre -->
 
+![Illustration sécurises-ses-cryptos](/images/sécuriser-ses-cryptos.png)
+
 La nature **décentralisée et souvent anonyme** des cryptomonnaies en fait une cible privilégiée pour les **hackers** et les **arnaqueurs**.  
 Contrairement au système bancaire traditionnel, il n’existe **aucune autorité centrale** à laquelle faire appel si vos fonds sont volés.
 
