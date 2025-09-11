@@ -44,4 +44,4 @@ Ce guide vous aide à comprendre les concepts clés — sans jargon inutile.
 ---
 
 👉 Vous voulez aller plus loin ?  
-[📅 Réservez une consultation gratuite](/consultation)
+[📅 Réservez une consultation gratuite](https://cryptoconsult.netlify.app/#contact)
