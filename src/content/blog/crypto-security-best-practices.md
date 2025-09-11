@@ -5,13 +5,13 @@ author: "David Birota"
 summary: "Protéger vos actifs numériques est crucial. Suivez ces pratiques de sécurité essentielles pour garder vos investissements crypto à l’abri des menaces."
 categories: ["Sécurité", "Investissement"]
 theme: "dark"
-image: "/images/sécuriser-ses-cryptos.png"
+image: "/images/securiser-ses-cryptos.png"
 ---
 
 ## Pourquoi la sécurité crypto est-elle si importante ?  
 <!-- animation: fade-in-up sur le titre -->
 
-![Illustration sécuriser-ses-cryptos](/images/sécuriser-ses-cryptos.png)
+![Illustration securiser-ses-cryptos](/images/securiser-ses-cryptos.png)
 
 La nature **décentralisée et souvent anonyme** des cryptomonnaies en fait une cible privilégiée pour les **hackers** et les **arnaqueurs**.  
 Contrairement au système bancaire traditionnel, il n’existe **aucune autorité centrale** à laquelle faire appel si vos fonds sont volés.
