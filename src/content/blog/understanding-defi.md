@@ -4,9 +4,14 @@ date: "2024-05-15"
 author: "David Birota"
 summary: "La Finance Décentralisée (DeFi) transforme le monde financier. Ce guide explique les notions clés et le potentiel de la DeFi."
 categories: ["DeFi", "Débutant"]
+image: "/images/comprendre-la-defi.png"
+
 ---
 
 # Comprendre la DeFi : Guide du Débutant 🚀
+
+![Illustration du comprendre la defi](/images/comprendre-la-defi.png)
+
 
 ## Qu’est-ce que la DeFi ?
 
