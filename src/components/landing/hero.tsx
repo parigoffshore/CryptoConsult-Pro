@@ -32,8 +32,8 @@ export default function Hero() {
               <Link href="#services">
                 Nos services
               </Link>
-
-  {/* ✅ Nouveau bouton livre blanc */}
+               </Button>
+            </div>
   <Button
     size="lg" variant="outline" asChild className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
     <a
