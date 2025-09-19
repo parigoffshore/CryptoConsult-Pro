@@ -32,21 +32,10 @@ export default function Hero() {
               <Link href="#services">
                 Nos services
               </Link>
-            </Button>
-          </div>
-          <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-  <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
-    <Link href="#contact">
-      Votre consultation gratuite
-    </Link>
-  </Button>
 
   {/* ✅ Nouveau bouton livre blanc */}
   <Button
-    size="lg"
-    asChild
-    className="bg-green-600 hover:bg-green-700 text-white"
-  >
+    size="lg" variant="outline" asChild className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
     <a
       href="https://cryptoconsultme.systeme.io/ton-livre-blanc-gratuit"
       target="_blank"
