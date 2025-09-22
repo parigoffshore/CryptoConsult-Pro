@@ -7,7 +7,7 @@ export default function Hero() {
       id="home"
       className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center text-white py-24"
     >
-      {/* Background avec dégradé et SVG */}
+      {/* Background avec SVG */}
       <div className="absolute inset-0 bg-primary overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-black opacity-80"></div>
         <svg
@@ -19,7 +19,7 @@ export default function Hero() {
         </svg>
       </div>
 
-      {/* Contenu principal */}
+      {/* Contenu */}
       <div className="relative container mx-auto px-4 md:px-6 text-center z-10">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-shadow-lg">
@@ -29,33 +29,34 @@ export default function Hero() {
             CryptoConsult Pro propose des conseils d'experts et des stratégies de pointe pour vous aider à maîtriser les complexités du marché des actifs numériques.
           </p>
 
-          {/* Boutons d'action */}
+          {/* Boutons alignés */}
           <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Button
-              size="lg"
-              asChild
-              className="bg-accent hover:bg-accent/90 text-accent-foreground"
-            >
-              <a href="#contact">Votre consultation gratuite</a>
-            </Button>
-
+            {/* Bouton 1 */}
             <Button
               size="lg"
               variant="outline"
               asChild
-              className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
+              className="w-64 bg-transparent border-white text-white hover:bg-white hover:text-primary"
+            >
+              <a href="#contact">Votre consultation gratuite</a>
+            </Button>
+
+            {/* Bouton 2 */}
+            <Button
+              size="lg"
+              variant="outline"
+              asChild
+              className="w-64 bg-transparent border-white text-white hover:bg-white hover:text-primary"
             >
               <a href="#services">Nos services</a>
             </Button>
-          </div>
 
-          {/* Bouton externe (livre blanc) */}
-          <div className="mt-6">
+            {/* Bouton 3 */}
             <a
               href="https://cryptoconsultme.systeme.io/ton-livre-blanc-gratuit"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium border border-white text-white bg-transparent hover:bg-white hover:text-primary rounded-md transition"
+              className="w-64 inline-flex items-center justify-center px-6 py-3 text-lg font-medium border border-white text-white bg-transparent hover:bg-white hover:text-primary rounded-md transition"
             >
               📥 Télécharger le livre blanc
             </a>
