@@ -51,15 +51,21 @@ export default function Hero() {
               <a href="#services">Nos services</a>
             </Button>
 
-            {/* Bouton 3 */}
-            <a
-              href="https://cryptoconsultme.systeme.io/ton-livre-blanc-gratuit"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-64 inline-flex items-center justify-center px-6 py-3 text-lg font-medium border border-white text-white bg-transparent hover:bg-white hover:text-primary rounded-md transition"
+            {/* Bouton 3 : téléchargement livre blanc */}
+            <Button
+              size="lg"
+              variant="outline"
+              asChild
+              className="w-64 bg-transparent border-white text-white hover:bg-white hover:text-primary"
             >
-              Télécharger livre blanc
-            </a>
+              <a
+                href="https://cryptoconsultme.systeme.io/ton-livre-blanc-gratuit"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                📥 Télécharger le livre blanc
+              </a>
+            </Button>
           </div>
         </div>
       </div>
