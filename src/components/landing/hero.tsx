@@ -58,7 +58,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="w-64 inline-flex items-center justify-center px-6 py-3 text-lg font-medium border border-white text-white bg-transparent hover:bg-white hover:text-primary rounded-md transition"
             >
-              📥 Télécharger le livre blanc
+              Télécharger livre blanc
             </a>
           </div>
         </div>
