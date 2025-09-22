@@ -3,7 +3,11 @@ import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center text-white py-24">
+    <section
+      id="home"
+      className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center text-white py-24"
+    >
+      {/* Background avec dégradé et SVG */}
       <div className="absolute inset-0 bg-primary overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-black opacity-80"></div>
         <svg
@@ -14,38 +18,48 @@ export default function Hero() {
           <path d="M0,64L80,80C160,96,320,128,480,117.3C640,107,800,53,960,37.3C1120,21,1280,43,1360,53.3L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
         </svg>
       </div>
+
+      {/* Contenu principal */}
       <div className="relative container mx-auto px-4 md:px-6 text-center z-10">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-shadow-lg">
-            Smart crypto decisions starts here
+            Smart crypto decisions start here
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-primary-foreground/80 md:text-xl">
             CryptoConsult Pro propose des conseils d'experts et des stratégies de pointe pour vous aider à maîtriser les complexités du marché des actifs numériques.
           </p>
-          <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              <Link href="#contact">
-                Votre consultation gratuite
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
-              <Link href="#services">
-                Nos services
-              </Link>
-               </Button>
-            </div>
-  <Button
-    size="lg" variant="outline" asChild className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
-    <a
-      href="https://cryptoconsultme.systeme.io/ton-livre-blanc-gratuit"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      📥 Télécharger le livre blanc
-    </a>
-  </Button>
-</div>
 
+          {/* Boutons d'action */}
+          <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+            <Button
+              size="lg"
+              asChild
+              className="bg-accent hover:bg-accent/90 text-accent-foreground"
+            >
+              <a href="#contact">Votre consultation gratuite</a>
+            </Button>
+
+            <Button
+              size="lg"
+              variant="outline"
+              asChild
+              className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
+            >
+              <a href="#services">Nos services</a>
+            </Button>
+          </div>
+
+          {/* Bouton externe (livre blanc) */}
+          <div className="mt-6">
+            <a
+              href="https://cryptoconsultme.systeme.io/ton-livre-blanc-gratuit"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium border border-white text-white bg-transparent hover:bg-white hover:text-primary rounded-md transition"
+            >
+              📥 Télécharger le livre blanc
+            </a>
+          </div>
         </div>
       </div>
     </section>
