@@ -8,15 +8,15 @@ export async function POST(req: Request) {
     const body = await req.json();
 
     const data = await resend.emails.send({
-      from: 'contact@ton-domaine.com', // il faut un domaine validé sur Resend
-      to: body.to,
-      subject: body.subject,
-      html: `<p>${body.message}</p>`,
+      from: process.env.EMAIL_FROM as string, // ton domaine validé
+      to: process.env.EMAIL_TO as string,     // ou body.to si tu veux dynamique
+      subject: body.subject || "Message depuis ton site",
+      html: `<p>${body.message || "Message vide"}</p>`,
     });
 
     return NextResponse.json(data);
   } catch (error) {
-    return NextResponse.json({ error });
+    console.error("Erreur Resend:", error);
+    return NextResponse.json({ error }, { status: 500 });
   }
 }
-
