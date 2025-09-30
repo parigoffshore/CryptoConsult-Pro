@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import * as React from "react";
 import { useForm } from "react-hook-form";
@@ -12,11 +12,12 @@ import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 
+// ✅ Validation du formulaire avec Zod
 const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters."),
-  email: z.string().email("Please enter a valid email address."),
-  subject: z.string().min(5, "Subject must be at least 5 characters."),
-  message: z.string().min(10, "Message must be at least 10 characters.").max(500, "Message must be less than 500 characters."),
+  name: z.string().min(2, "Le nom doit faire au moins 2 caractères."),
+  email: z.string().email("Veuillez entrer un email valide."),
+  subject: z.string().min(5, "Le sujet doit faire au moins 5 caractères."),
+  message: z.string().min(10, "Le message doit faire au moins 10 caractères.").max(500, "Message trop long (max 500 caractères)."),
 });
 
 export default function Contact() {
@@ -33,27 +34,51 @@ export default function Contact() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you shortly.",
-    });
-    form.reset();
+  // ✅ Envoi des données au backend `/api/send`
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const res = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      if (res.ok) {
+        toast({
+          title: "Message envoyé ✅",
+          description: "Merci de nous avoir contactés. Nous reviendrons vers vous rapidement.",
+        });
+        form.reset();
+      } else {
+        const error = await res.json();
+        toast({
+          variant: "destructive",
+          title: "Erreur ❌",
+          description: error?.error || "Impossible d’envoyer le message.",
+        });
+      }
+    } catch (error) {
+      console.error("Erreur envoi formulaire:", error);
+      toast({
+        variant: "destructive",
+        title: "Erreur serveur ❌",
+        description: "Un problème est survenu, réessayez plus tard.",
+      });
+    }
   }
 
   function handleBooking() {
     if (date) {
-        toast({
-            title: "Booking Confirmed!",
-            description: `Your free consulting session is booked for ${date.toLocaleDateString()}.`,
-        });
+      toast({
+        title: "Consultation réservée ✅",
+        description: `Votre session gratuite est prévue pour le ${date.toLocaleDateString()}.`,
+      });
     } else {
-        toast({
-            variant: "destructive",
-            title: "Booking Failed",
-            description: "Please select a date for your consultation.",
-        });
+      toast({
+        variant: "destructive",
+        title: "Réservation échouée ❌",
+        description: "Veuillez choisir une date.",
+      });
     }
   }
 
@@ -63,46 +88,51 @@ export default function Contact() {
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
           <h2 className="font-headline text-4xl md:text-5xl font-bold">Prenons Contact</h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
-            Vous avez une question ou souhaitez démarrer un projet ? N'hésitez pas à nous contacter.
+            Vous avez une question ou souhaitez démarrer un projet ? N'hésitez pas à nous contacter.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* 📍 Coordonnées */}
           <div className="space-y-8">
             <div className="p-6 bg-background rounded-lg shadow-sm">
-                <h3 className="text-2xl font-bold font-headline mb-4">Contact Information</h3>
-                <div className="space-y-4 text-muted-foreground">
-                    <div className="flex items-center gap-4">
-                        <MapPin className="h-6 w-6 text-primary" />
-                        <span>Calle Principal, Big Creek, Isla Colon , Bocas del Toro, PANAMA</span>
-                    </div>
-                    <div className="flex items-center gap-4">
-                        <Mail className="h-6 w-6 text-primary" />
-                        <a href="mailto:Davidcrypto507@gmail.com" className="hover:text-primary">cryptoconsultme@gmail.com</a>
-                    </div>
-                    <div className="flex items-center gap-4">
-                        <Phone className="h-6 w-6 text-primary" />
-                        <a href="tel:+50764708636" className="hover:text-primary">+507 6470-8636</a>
-                    </div>
-                    <div className="flex items-center gap-4">
-                        <Phone className="h-6 w-6 text-primary" />
-                        <a href="tel:+23054741839" className="hover:text-primary">+230 5474-1839</a>
-                    </div>
+              <h3 className="text-2xl font-bold font-headline mb-4">Contact Information</h3>
+              <div className="space-y-4 text-muted-foreground">
+                <div className="flex items-center gap-4">
+                  <MapPin className="h-6 w-6 text-primary" />
+                  <span>Calle Principal, Big Creek, Isla Colon, Bocas del Toro, PANAMA</span>
                 </div>
+                <div className="flex items-center gap-4">
+                  <Mail className="h-6 w-6 text-primary" />
+                  <a href="mailto:cryptoconsultme@gmail.com" className="hover:text-primary">cryptoconsultme@gmail.com</a>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Phone className="h-6 w-6 text-primary" />
+                  <a href="tel:+50764708636" className="hover:text-primary">+507 6470-8636</a>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Phone className="h-6 w-6 text-primary" />
+                  <a href="tel:+23054741839" className="hover:text-primary">+230 5474-1839</a>
+                </div>
+              </div>
             </div>
+
+            {/* 📅 Réservation consultation */}
             <div className="p-6 bg-background rounded-lg shadow-sm">
-                <h3 className="text-2xl font-bold font-headline mb-4">Book a Free Consulting</h3>
-                <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    className="rounded-md"
-                />
-                <Button onClick={handleBooking} className="w-full mt-4">
-                  Book Free Consulting
-                </Button>
+              <h3 className="text-2xl font-bold font-headline mb-4">Book a Free Consulting</h3>
+              <Calendar
+                mode="single"
+                selected={date}
+                onSelect={setDate}
+                className="rounded-md"
+              />
+              <Button onClick={handleBooking} className="w-full mt-4">
+                Book Free Consulting
+              </Button>
             </div>
           </div>
+
+          {/* ✉️ Formulaire */}
           <div className="p-6 sm:p-8 bg-background rounded-lg shadow-sm">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -111,7 +141,7 @@ export default function Contact() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Full Name</FormLabel>
+                      <FormLabel>Nom complet</FormLabel>
                       <FormControl>
                         <Input placeholder="John Doe" {...field} />
                       </FormControl>
@@ -124,7 +154,7 @@ export default function Contact() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email Address</FormLabel>
+                      <FormLabel>Email</FormLabel>
                       <FormControl>
                         <Input type="email" placeholder="john.doe@example.com" {...field} />
                       </FormControl>
@@ -137,9 +167,9 @@ export default function Contact() {
                   name="subject"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Subject</FormLabel>
+                      <FormLabel>Sujet</FormLabel>
                       <FormControl>
-                        <Input placeholder="Investment Strategy Inquiry" {...field} />
+                        <Input placeholder="Demande de consultation crypto" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -152,14 +182,14 @@ export default function Contact() {
                     <FormItem>
                       <FormLabel>Message</FormLabel>
                       <FormControl>
-                        <Textarea placeholder="Tell us how we can help..." className="min-h-[120px]" {...field} />
+                        <Textarea placeholder="Décrivez votre projet ou vos questions..." className="min-h-[120px]" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
                 <Button type="submit" size="lg" className="w-full" disabled={form.formState.isSubmitting}>
-                  {form.formState.isSubmitting ? "Sending..." : "Send Message"}
+                  {form.formState.isSubmitting ? "Envoi..." : "Envoyer le message"}
                 </Button>
               </form>
             </Form>
