@@ -9,7 +9,10 @@ export async function POST(req: Request) {
     const { name, email, message } = body;
 
     if (!name || !email || !message) {
-      return NextResponse.json({ error: "Tous les champs sont obligatoires." }, { status: 400 });
+      return NextResponse.json(
+        { error: "Tous les champs sont obligatoires." },
+        { status: 400 }
+      );
     }
 
     const data = await resend.emails.send({
@@ -17,12 +20,15 @@ export async function POST(req: Request) {
       to: process.env.EMAIL_TO || "cryptoconsultme@gmail.com",
       subject: `Nouveau message de ${name}`,
       reply_to: email,
-      text: message,
+      text: message
     });
 
     return NextResponse.json({ success: true, data });
   } catch (error) {
     console.error("Erreur envoi email:", error);
-    return NextResponse.json({ error: "Impossible d’envoyer l’email." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Impossible d’envoyer l’email." },
+      { status: 500 }
+    );
   }
 }
