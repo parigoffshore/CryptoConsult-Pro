@@ -4,5 +4,9 @@ command = "npm ci && npm run build"
 [build.environment]
 NODE_VERSION = "20.11.1"
 
+# Si tu as des peer deps capricieuses, décommente la ligne suivante :
+
+# NPM_FLAGS = "--legacy-peer-deps"
+
 [[plugins]]
 package = "@netlify/plugin-nextjs"
