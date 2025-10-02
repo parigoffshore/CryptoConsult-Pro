@@ -5,7 +5,7 @@
   "engines": { "node": ">=18 <21" },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",  // Ajouter ou vérifier cette ligne
+    "build": "next build",  
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
