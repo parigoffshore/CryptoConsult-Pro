@@ -1,43 +1,38 @@
-"use client";
+"use client"
 
-import { Button } from "@/components/ui/button";
+import { Globe } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Globe } from "lucide-react";
-import { useLanguage, type Language } from "@/hooks/use-language";
+} from "@/components/ui/dropdown-menu"
 
-export function LanguageSwitcher() {
-  const { language, setLanguage } = useLanguage();
+import { useLanguage } from "@/hooks/use-language"
+import { cn } from "@/lib/utils"
 
-  const languages: { code: Language; name: string }[] = [
-    { code: "en", name: "English" },
-    { code: "es", name: "Español" },
-    { code: "fr", name: "Français" },
-  ];
+export default function LanguageSwitcher({ className }: { className?: string }) {
+  const { language, setLanguage } = useLanguage()
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
+        <Button variant="ghost" size="icon" aria-label="Changer de langue">
           <Globe className="h-5 w-5" />
-          <span className="sr-only">Change language</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {languages.map((lang) => (
-          <DropdownMenuItem
-            key={lang.code}
-            onClick={() => setLanguage(lang.code)}
-            className={language === lang.code ? "font-bold" : ""}
-          >
-            {lang.name}
-          </DropdownMenuItem>
-        ))}
+        <DropdownMenuItem onClick={() => setLanguage("en")} className={cn(language === "en" && "text-primary")}>
+          English
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setLanguage("fr")} className={cn(language === "fr" && "text-primary")}>
+          Français
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setLanguage("es")} className={cn(language === "es" && "text-primary")}>
+          Español
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  );
+  )
 }

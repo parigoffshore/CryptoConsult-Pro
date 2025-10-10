@@ -1,93 +1,55 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Sparkles } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Logo } from '@/components/logo';
-import { LanguageSwitcher } from '@/components/language-switcher';
+import Link from "next/link";
+import Image from "next/image";
+import { Globe } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import LanguageSwitcher from "@/components/language-switcher";
+import { useLanguage } from "@/hooks/use-language";
+import { cn } from "@/lib/utils";
 
-export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { href: '#services', label: 'Services' },
-    { href: '/blog', label: 'Blog' },
-    { href: '#team', label: 'A Propos' },
-    { href: '#testimonials', label: 'Témoignages' },
-    { href: '#contact', label: 'Contact' },
-  ];
+export default function Header({ className }: { className?: string }) {
+  const { t } = useLanguage() || { t: (key: string) => key };
 
   return (
-    <header className={cn(
-      "sticky top-0 z-50 w-full transition-all duration-300",
-      scrolled ? "bg-background/80 backdrop-blur-sm border-b" : "bg-transparent"
-    )}>
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Logo />
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-foreground/80 hover:text-foreground transition-colors">
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-        <div className="flex items-center gap-2">
-          <LanguageSwitcher />
-          <Button asChild className="hidden sm:flex bg-accent hover:bg-accent/90 text-accent-foreground">
-            <Link href="/tools">
-              <Sparkles className="mr-2 h-4 w-4" />
-              AI Tools
-            </Link>
-          </Button>
-          <div className="md:hidden">
-            <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6" />
-                  <span className="sr-only">Toggle menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <div className="flex flex-col h-full">
-                  <div className="p-6">
-                    <Logo />
-                  </div>
-                  <nav className="flex flex-col gap-6 p-6 text-lg font-medium">
-                    {navLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="text-foreground/80 hover:text-foreground transition-colors"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </nav>
-                  <div className="mt-auto p-6">
-                    <Button asChild size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                       <Link href="/tools">
-                         <Sparkles className="mr-2 h-4 w-4" />
-                         AI Tools
-                       </Link>
-                    </Button>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
+    <header
+      className={cn(
+        "sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
+        className
+      )}
+    >
+      <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0 p-0">
+        <Link href="/" className="flex items-center space-x-2">
+          <Image src="/logo.png" alt="Logo CryptoConsult Pro" width={100} height={50} />
+          <span className="font-headline text-xl font-bold">CryptoConsult Pro</span>
+        </Link>
+        <div className="flex flex-1 items-center justify-end space-x-4">
+          <nav className="flex items-center space-x-1">
+            <Button variant="ghost" asChild>
+              <Link href="/consultation" rel="canonical">
+                {t("consultation")}
+              </Link>
+            </Button>
+            <Button variant="ghost" asChild>
+              <Link href="/services" rel="canonical">
+                {t("services")}
+              </Link>
+            </Button>
+            <Button variant="ghost" asChild>
+              <Link href="/blog" rel="canonical">
+                {t("blog")}
+              </Link>
+            </Button>
+            <Button variant="ghost" asChild>
+              <Link href="/contact" rel="canonical">
+                {t("contact")}
+              </Link>
+            </Button>
+            <LanguageSwitcher />
+            <Button variant="ghost" size="icon" aria-label="Outils AI">
+              <Globe className="h-5 w-5" alt="Icône Globe" />
+            </Button>
+          </nav>
         </div>
       </div>
     </header>

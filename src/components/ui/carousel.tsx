@@ -23,12 +23,13 @@ type CarouselProps = {
 
 type CarouselContextProps = {
   carouselRef: ReturnType<typeof useEmblaCarousel>[0]
-  api: ReturnType<typeof useEmblaCarousel>[1]
+  api: CarouselApi | null // Peut être null au départ
   scrollPrev: () => void
   scrollNext: () => void
   canScrollPrev: boolean
   canScrollNext: boolean
-} & CarouselProps
+  orientation: "horizontal" | "vertical" // Forcé à être défini
+}
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null)
 
@@ -48,7 +49,7 @@ const Carousel = React.forwardRef<
 >(
   (
     {
-      orientation = "horizontal",
+      orientation = "horizontal", // Défaut explicite
       opts,
       setApi,
       plugins,
@@ -69,10 +70,7 @@ const Carousel = React.forwardRef<
     const [canScrollNext, setCanScrollNext] = React.useState(false)
 
     const onSelect = React.useCallback((api: CarouselApi) => {
-      if (!api) {
-        return
-      }
-
+      if (!api) return
       setCanScrollPrev(api.canScrollPrev())
       setCanScrollNext(api.canScrollNext())
     }, [])
@@ -99,41 +97,36 @@ const Carousel = React.forwardRef<
     )
 
     React.useEffect(() => {
-      if (!api || !setApi) {
-        return
-      }
-
+      if (!api || !setApi) return
       setApi(api)
     }, [api, setApi])
 
     React.useEffect(() => {
-      if (!api) {
-        return
-      }
-
+      if (!api) return
       onSelect(api)
       api.on("reInit", onSelect)
       api.on("select", onSelect)
-
       return () => {
-        api?.off("select", onSelect)
+        api.off("select", onSelect)
+        api.off("reInit", onSelect)
       }
     }, [api, onSelect])
 
+    const value = React.useMemo(
+      () => ({
+        carouselRef,
+        api,
+        orientation,
+        scrollPrev,
+        scrollNext,
+        canScrollPrev,
+        canScrollNext,
+      }),
+      [carouselRef, api, orientation, scrollPrev, scrollNext, canScrollPrev, canScrollNext]
+    )
+
     return (
-      <CarouselContext.Provider
-        value={{
-          carouselRef,
-          api: api,
-          opts,
-          orientation:
-            orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
-          scrollPrev,
-          scrollNext,
-          canScrollPrev,
-          canScrollNext,
-        }}
-      >
+      <CarouselContext.Provider value={value}>
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
@@ -206,7 +199,7 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute  h-8 w-8 rounded-full",
+        "absolute h-8 w-8 rounded-full",
         orientation === "horizontal"
           ? "-left-12 top-1/2 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",

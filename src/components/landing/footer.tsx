@@ -1,51 +1,25 @@
 import Link from 'next/link';
-import { Twitter, Linkedin, Facebook } from 'lucide-react';
-import { Logo } from '@/components/logo';
+import { Github, Twitter, Linkedin } from 'lucide-react';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 md:px-6 py-12">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="md:col-span-1">
-            <div className="bg-black rounded-md inline-block p-2">
-                <Logo />
-            </div>
-            <p className="mt-4 text-sm text-primary-foreground/70">
-              Expert crypto consulting to navigate the world of digital assets.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:col-span-2 gap-8">
-            <div>
-              <h4 className="font-semibold tracking-wider uppercase mb-4">Navigate</h4>
-              <ul className="space-y-2">
-                <li><Link href="#services" className="text-sm text-primary-foreground/70 hover:text-white">Services</Link></li>
-                <li><Link href="/blog" className="text-sm text-primary-foreground/70 hover:text-white">Blog</Link></li>
-                <li><Link href="#team" className="text-sm text-primary-foreground/70 hover:text-white">Team</Link></li>
-                <li><Link href="#testimonials" className="text-sm text-primary-foreground/70 hover:text-white">Testimonials</Link></li>
-                <li><Link href="#contact" className="text-sm text-primary-foreground/70 hover:text-white">Contact</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold tracking-wider uppercase mb-4">Connect</h4>
-              <div className="flex space-x-4">
-                <Link href="#" aria-label="Twitter">
-                  <Twitter className="h-6 w-6 text-primary-foreground/70 hover:text-white" />
-                </Link>
-                <Link href="#" aria-label="LinkedIn">
-                  <Linkedin className="h-6 w-6 text-primary-foreground/70 hover:text-white" />
-                </Link>
-                <Link href="#" aria-label="Facebook">
-                  <Facebook className="h-6 w-6 text-primary-foreground/70 hover:text-white" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="mt-8 pt-8 border-t border-primary-foreground/20 text-center text-sm text-primary-foreground/70">
-          <p>&copy; {currentYear} CryptoConsult Pro. All Rights Reserved.</p>
+    <footer className="bg-secondary py-8">
+      <div className="container flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <p className="text-sm text-muted-foreground">© 2025 CryptoConsult Pro. Tous droits réservés.</p>
+        <nav className="flex space-x-4">
+          <Link href="/privacy" rel="nofollow">Politique de confidentialité</Link>
+          <Link href="/terms" rel="nofollow">Conditions d'utilisation</Link>
+        </nav>
+        <div className="flex space-x-4">
+          <Link href="https://github.com/parigoffshore" aria-label="GitHub">
+            <Github className="h-5 w-5" alt="Icône GitHub" />
+          </Link>
+          <Link href="https://twitter.com/parigoffshore" aria-label="Twitter">
+            <Twitter className="h-5 w-5" alt="Icône Twitter" />
+          </Link>
+          <Link href="https://linkedin.com/company/parigoffshore" aria-label="LinkedIn">
+            <Linkedin className="h-5 w-5" alt="Icône LinkedIn" />
+          </Link>
         </div>
       </div>
     </footer>
