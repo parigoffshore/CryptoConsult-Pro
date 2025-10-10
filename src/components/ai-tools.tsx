@@ -1,21 +1,21 @@
 "use client";
 
-import { useState } from 'react';
-import { useForm, type SubmitHandler } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
+import { useState } from "react";
+import { useForm, type SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { handleGenerateMarketingContent, handleGenerateServiceDescriptions } from '@/app/tools/actions';
-import { Loader2, Sparkles } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
-import type { GenerateMarketingContentInput } from '@/ai/flows/generate-marketing-content';
-import type { GenerateServiceDescriptionsInput } from '@/ai/flows/generate-service-descriptions';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { handleGenerateMarketingContent, handleGenerateServiceDescriptions } from "@/app/tools/actions";
+import { Loader2, Sparkles } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import type { GenerateMarketingContentInput } from "@/ai/flows/generate-marketing-content";
+import type { GenerateServiceDescriptionsInput } from "@/ai/flows/generate-service-descriptions";
 
 const marketingSchema = z.object({
   companyName: z.string().min(1, "Company name is required."),
@@ -48,11 +48,11 @@ export default function AITools() {
     defaultValues: { serviceName: "", targetAudience: "", keyBenefits: "", style: "Engaging" },
   });
 
-  const onMarketingSubmit: SubmitHandler<GenerateMarketingContentInput> = async (data) => {
+  const onMarketingSubmit: SubmitHandler<z.infer<typeof marketingSchema>> = async (data) => {
     setMarketingLoading(true);
     setMarketingResult("");
     try {
-      const result = await handleGenerateMarketingContent(data);
+      const result = await handleGenerateMarketingContent(data as GenerateMarketingContentInput);
       setMarketingResult(result.marketingContent);
     } catch (error) {
       toast({ variant: "destructive", title: "Error", description: "Failed to generate marketing content." });
@@ -61,11 +61,11 @@ export default function AITools() {
     }
   };
 
-  const onServiceSubmit: SubmitHandler<GenerateServiceDescriptionsInput> = async (data) => {
+  const onServiceSubmit: SubmitHandler<z.infer<typeof serviceSchema>> = async (data) => {
     setServiceLoading(true);
     setServiceResult("");
     try {
-      const result = await handleGenerateServiceDescriptions(data);
+      const result = await handleGenerateServiceDescriptions(data as GenerateServiceDescriptionsInput);
       setServiceResult(result.description);
     } catch (error) {
       toast({ variant: "destructive", title: "Error", description: "Failed to generate service description." });
@@ -87,22 +87,62 @@ export default function AITools() {
             <CardDescription>Draft compelling marketing content tailored to attract potential clients.</CardDescription>
           </CardHeader>
           <Form {...marketingForm}>
-            <form onSubmit={marketingForm.handleSubmit(onMarketingSubmit)}>
-              <CardContent className="space-y-4">
+            <form onSubmit={marketingForm.handleSubmit(onMarketingSubmit)} className="space-y-4">
+              <CardContent>
                 <div className="grid md:grid-cols-2 gap-4">
-                  <FormField control={marketingForm.control} name="companyName" render={({ field }) => (
-                    <FormItem><FormLabel>Company Name</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage /></FormItem>
-                  )} />
-                  <FormField control={marketingForm.control} name="targetAudience" render={({ field }) => (
-                    <FormItem><FormLabel>Target Audience</FormLabel><FormControl><Input placeholder="e.g., Institutional Investors" {...field} /></FormControl><FormMessage /></FormItem>
-                  )} />
+                  <FormField
+                    control={marketingForm.control}
+                    name="companyName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Company Name</FormLabel>
+                        <FormControl>
+                          <Input {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={marketingForm.control}
+                    name="targetAudience"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Target Audience</FormLabel>
+                        <FormControl>
+                          <Input placeholder="e.g., Institutional Investors" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                 </div>
-                <FormField control={marketingForm.control} name="serviceDescription" render={({ field }) => (
-                  <FormItem><FormLabel>Service Description</FormLabel><FormControl><Textarea placeholder="Describe the consulting services offered..." {...field} /></FormControl><FormMessage /></FormItem>
-                )} />
-                <FormField control={marketingForm.control} name="tone" render={({ field }) => (
-                  <FormItem><FormLabel>Tone</FormLabel><FormControl><Input placeholder="e.g., Professional, Engaging, Informative" {...field} /></FormControl><FormMessage /></FormItem>
-                )} />
+                <FormField
+                  control={marketingForm.control}
+                  name="serviceDescription"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Service Description</FormLabel>
+                      <FormControl>
+                        <Textarea placeholder="Describe the consulting services offered..." {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={marketingForm.control}
+                  name="tone"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Tone</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., Professional, Engaging, Informative" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
                 {marketingResult && (
                   <div className="space-y-2">
                     <FormLabel>Generated Content</FormLabel>
@@ -127,23 +167,63 @@ export default function AITools() {
             <CardDescription>Create clear and persuasive descriptions for your consulting services.</CardDescription>
           </CardHeader>
           <Form {...serviceForm}>
-            <form onSubmit={serviceForm.handleSubmit(onServiceSubmit)}>
-              <CardContent className="space-y-4">
+            <form onSubmit={serviceForm.handleSubmit(onServiceSubmit)} className="space-y-4">
+              <CardContent>
                 <div className="grid md:grid-cols-2 gap-4">
-                    <FormField control={serviceForm.control} name="serviceName" render={({ field }) => (
-                        <FormItem><FormLabel>Service Name</FormLabel><FormControl><Input placeholder="e.g., DeFi Yield Farming" {...field} /></FormControl><FormMessage /></FormItem>
-                    )} />
-                    <FormField control={serviceForm.control} name="targetAudience" render={({ field }) => (
-                        <FormItem><FormLabel>Target Audience</FormLabel><FormControl><Input placeholder="e.g., High-Net-Worth Individuals" {...field} /></FormControl><FormMessage /></FormItem>
-                    )} />
+                  <FormField
+                    control={serviceForm.control}
+                    name="serviceName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Service Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="e.g., DeFi Yield Farming" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={serviceForm.control}
+                    name="targetAudience"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Target Audience</FormLabel>
+                        <FormControl>
+                          <Input placeholder="e.g., High-Net-Worth Individuals" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                 </div>
-                <FormField control={serviceForm.control} name="keyBenefits" render={({ field }) => (
-                  <FormItem><FormLabel>Key Benefits (comma-separated)</FormLabel><FormControl><Input placeholder="e.g., High APY, Risk Mitigation, Portfolio Diversification" {...field} /></FormControl><FormMessage /></FormItem>
-                )} />
-                <FormField control={serviceForm.control} name="style" render={({ field }) => (
-                  <FormItem><FormLabel>Style</FormLabel><FormControl><Input placeholder="e.g., Professional, Engaging, Persuasive" {...field} /></FormControl><FormMessage /></FormItem>
-                )} />
-                 {serviceResult && (
+                <FormField
+                  control={serviceForm.control}
+                  name="keyBenefits"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Key Benefits (comma-separated)</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., High APY, Risk Mitigation, Portfolio Diversification" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={serviceForm.control}
+                  name="style"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Style</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., Professional, Engaging, Persuasive" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                {serviceResult && (
                   <div className="space-y-2">
                     <FormLabel>Generated Description</FormLabel>
                     <Textarea readOnly value={serviceResult} className="min-h-[200px] bg-secondary" />
@@ -152,8 +232,8 @@ export default function AITools() {
               </CardContent>
               <CardFooter>
                 <Button type="submit" disabled={isServiceLoading}>
-                    {isServiceLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
-                    Generate Description
+                  {isServiceLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
+                  Generate Description
                 </Button>
               </CardFooter>
             </form>

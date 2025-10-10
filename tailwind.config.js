@@ -1,11 +1,9 @@
-import type {Config} from 'tailwindcss';
-
-export default {
+module.exports = {
   darkMode: ['class'],
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}', // Inclut tous les fichiers dans src/
+    './app/**/*.{js,ts,jsx,tsx,mdx}',  // Inclut les fichiers dans app/
+    './components/**/*.{js,ts,jsx,tsx,mdx}', // Inclut les composants
   ],
   theme: {
     extend: {
@@ -73,27 +71,19 @@ export default {
       },
       keyframes: {
         'accordion-down': {
-          from: {
-            height: '0',
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)',
-          },
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
         },
         'accordion-up': {
-          from: {
-            height: 'var(--radix-accordion-content-height)',
-          },
-          to: {
-            height: '0',
-          },
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
         },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
-      typography: ({ theme }: { theme: (path: string) => string }) => ({
+      typography: (theme) => ({
         DEFAULT: {
           css: {
             '--tw-prose-body': theme('colors.foreground'),
@@ -117,5 +107,8 @@ export default {
       }),
     },
   },
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
-} satisfies Config;
+  plugins: [
+    require('tailwindcss-animate'),
+    require('@tailwindcss/typography'),
+  ],
+};
