@@ -19,14 +19,14 @@ export const metadata: Metadata = {
   title: "CryptoConsult Pro",
   description: "Expert crypto consulting to navigate the world of digital assets.",
   keywords: ["crypto", "consulting", "blockchain", "digital assets"],
-  authors: [{ name: "David Birota", url: "https://yourwebsite.com" }],
+  authors: [{ name: "David Birota", url: "https://cryptoconsult.me" }],
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
     title: "CryptoConsult Pro",
     description: "Expert crypto consulting to navigate the world of digital assets.",
-    url: "https://yourwebsite.com",
+    url: "https://cryptoconsult.me",
     siteName: "CryptoConsult Pro",
     images: ["/og-image.jpg"],
     locale: "en_US",

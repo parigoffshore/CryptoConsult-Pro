@@ -1,48 +1,48 @@
-import { Briefcase, PieChart, Globe, Shield } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Briefcase, PieChart, Globe, Shield } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+const services = [
+  {
+    icon: Briefcase,
+    title: "Consulting Stratégique",
+    description: "Stratégies personnalisées pour naviguer dans le marché crypto volatil.",
+  },
+  {
+    icon: PieChart,
+    title: "Analyse de Portefeuille",
+    description: "Optimisation de votre portefeuille crypto pour maximiser les retours.",
+  },
+  {
+    icon: Globe,
+    title: "Expansion Internationale",
+    description: "Conseils pour étendre vos opérations crypto à l'international.",
+  },
+  {
+    icon: Shield,
+    title: "Gestion des Risques",
+    description: "Stratégies pour minimiser les risques dans l'écosystème crypto.",
+  },
+];
 
 export default function Services() {
   return (
-    <section className="py-20 md:py-32 bg-secondary">
-      <div className="container">
-        <h2 className="font-headline text-4xl md:text-5xl font-bold text-center mb-12">Nos Services</h2>
+    <section className="py-20 md:py-32 bg-secondary" aria-label="Nos services">
+      <div className="container mx-auto px-4">
+        <h2 className="font-headline text-4xl md:text-5xl font-bold text-center mb-12">
+          Nos Services
+        </h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <Card>
-            <CardHeader>
-              <Briefcase className="h-10 w-10 text-primary mb-4" alt="Icône Briefcase" />
-              <CardTitle>Consulting Stratégique</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>Stratégies personnalisées pour naviguer dans le marché crypto volatil.</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <PieChart className="h-10 w-10 text-primary mb-4" alt="Icône PieChart" />
-              <CardTitle>Analyse de Portefeuille</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>Optimisation de votre portefeuille crypto pour maximiser les retours.</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <Globe className="h-10 w-10 text-primary mb-4" alt="Icône Globe" />
-              <CardTitle>Expansion Internationale</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>Conseils pour étendre vos opérations crypto à l'international.</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <Shield className="h-10 w-10 text-primary mb-4" alt="Icône Shield" />
-              <CardTitle>Gestion des Risques</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>Stratégies pour minimiser les risques dans l'écosystème crypto.</p>
-            </CardContent>
-          </Card>
+          {services.map(({ icon: Icon, title, description }, index) => (
+            <Card key={index} className="transition-all hover:shadow-lg">
+              <CardHeader>
+                <Icon className="h-10 w-10 text-primary mb-4" aria-hidden="true" />
+                <CardTitle>{title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">{description}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>

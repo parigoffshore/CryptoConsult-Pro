@@ -49,26 +49,48 @@ export default function AITools() {
   });
 
   const onMarketingSubmit: SubmitHandler<z.infer<typeof marketingSchema>> = async (data) => {
-    setMarketingLoading(true);
-    setMarketingResult("");
-    try {
-      const result = await handleGenerateMarketingContent(data as GenerateMarketingContentInput);
-      setMarketingResult(result.marketingContent);
-    } catch (error) {
-      toast({ variant: "destructive", title: "Error", description: "Failed to generate marketing content." });
-    } finally {
-      setMarketingLoading(false);
-    }
-  };
+  if (isMarketingLoading) return;
+  setMarketingLoading(true);
+  setMarketingResult("");
+  try {
+    const input: GenerateMarketingContentInput = {
+      companyName: data.companyName,
+      serviceDescription: data.serviceDescription,
+      targetAudience: data.targetAudience,
+      tone: data.tone,
+    };
+    const result = await handleGenerateMarketingContent(input);
+    setMarketingResult(result?.marketingContent ?? "No content generated.");
+  } catch (error) {
+    toast({
+      variant: "destructive",
+      title: "Error",
+      description: error instanceof Error ? error.message : "Failed to generate marketing content.",
+    });
+  } finally {
+    setMarketingLoading(false);
+  }
+};
 
   const onServiceSubmit: SubmitHandler<z.infer<typeof serviceSchema>> = async (data) => {
+    if (isServiceLoading) return; // Évite les soumissions multiples
     setServiceLoading(true);
     setServiceResult("");
     try {
-      const result = await handleGenerateServiceDescriptions(data as GenerateServiceDescriptionsInput);
-      setServiceResult(result.description);
+      const input: GenerateServiceDescriptionsInput = {
+        serviceName: data.serviceName,
+        targetAudience: data.targetAudience,
+        keyBenefits: data.keyBenefits,
+        style: data.style,
+      };
+      const result = await handleGenerateServiceDescriptions(input);
+      setServiceResult(result?.description ?? "No description generated."); // Utilise ?? pour gérer null/undefined
     } catch (error) {
-      toast({ variant: "destructive", title: "Error", description: "Failed to generate service description." });
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: error instanceof Error ? error.message : "Failed to generate service description.",
+      });
     } finally {
       setServiceLoading(false);
     }

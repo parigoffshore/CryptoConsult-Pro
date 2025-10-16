@@ -12,13 +12,13 @@ export default function Footer() {
         </nav>
         <div className="flex space-x-4">
           <Link href="https://github.com/parigoffshore" aria-label="GitHub">
-            <Github className="h-5 w-5" alt="Icône GitHub" />
+            <Github className="h-5 w-5" />
           </Link>
           <Link href="https://twitter.com/parigoffshore" aria-label="Twitter">
-            <Twitter className="h-5 w-5" alt="Icône Twitter" />
+            <Twitter className="h-5 w-5" />
           </Link>
-          <Link href="https://linkedin.com/company/parigoffshore" aria-label="LinkedIn">
-            <Linkedin className="h-5 w-5" alt="Icône LinkedIn" />
+          <Link href="https://www.linkedin.com/in/david-birota-cryptoconsultme/" aria-label="LinkedIn">
+            <Linkedin className="h-5 w-5" />
           </Link>
         </div>
       </div>

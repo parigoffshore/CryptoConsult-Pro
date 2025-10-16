@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-<<<<<<< HEAD
-    "target": "ES2022",
-=======
-    "target": "es2017",
->>>>>>> 6cb80e51d618dc6cfa1a4c2c2df3f050a6155d67
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "es2015",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,41 +18,24 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-<<<<<<< HEAD
-    "forceConsistentCasingInFileNames": true,
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": ["./src/*"] 
-    },
-    "types": ["node", "react", "react-dom"], 
-    "baseUrl": ".", 
-    "outDir": "./dist", 
-    "sourceMap": false 
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "*.config.ts", 
-    "*.config.js" 
+    ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    ".next",
-    ".next/cache", 
-    "dist", 
-    "**/*.test.ts" 
+    "node_modules"
   ]
 }
-=======
-    "plugins": [{ "name": "next" }]
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
-}
->>>>>>> 6cb80e51d618dc6cfa1a4c2c2df3f050a6155d67
