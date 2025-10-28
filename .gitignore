@@ -5,6 +5,7 @@ node_modules/
 .next/
 *.log
 .firebase/
+out/
 # dependencies
 /node_modules
 /.pnp
