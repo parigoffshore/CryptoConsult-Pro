@@ -1,0 +1,14 @@
+{
+    "crypto_security": {
+        "src": "https://picsum.photos/seed/crypto-security/600/400",
+        "dataAiHint": "crypto security"
+    },
+    "defi_guide": {
+        "src": "https://picsum.photos/seed/defi-guide/600/400",
+        "dataAiHint": "defi guide"
+    },
+    "crypto_lexicon": {
+        "src": "https://picsum.photos/seed/lexicon/600/400",
+        "dataAiHint": "crypto lexicon"
+    }
+}
